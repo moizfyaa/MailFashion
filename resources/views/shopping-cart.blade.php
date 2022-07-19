@@ -1,13 +1,7 @@
 @extends('layout.app')
 @section('content')
     <!-- Header Section End -->
-    @if(session()->has('success'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fa fa-exclamation-circle me-2"></i>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
-        {{ session()->get('success') }}
-        </div>
-    @endif
+
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
