@@ -11,11 +11,11 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -73,21 +73,21 @@
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <?php if(Route::has('login')): ?>
-                            <?php if(auth()->guard()->check()): ?>
-                                <form action="<?php echo e(route('logout')); ?>" method="POST">
-                                <?php echo csrf_field(); ?>
-                                <button type="submit" >
-                                <?php echo e(__('Log Out')); ?>
+                                    <?php if(auth()->guard()->check()): ?>
+                                        <form action="<?php echo e(route('logout')); ?>" method="POST">
+                                            <?php echo csrf_field(); ?>
+                                            <button type="submit">
+                                                <?php echo e(__('Log Out')); ?>
 
-                            </button>
-                        </form>
-                        <?php else: ?>
-                            <a href="/login">Login</a>
-                            <?php if(Route::has('register')): ?>
-                            <a href="/register">Register</a>
-                            <?php endif; ?>
-                            <?php endif; ?>
-                            <?php endif; ?>
+                                            </button>
+                                        </form>
+                                    <?php else: ?>
+                                        <a href="/login">Login</a>
+                                        <?php if(Route::has('register')): ?>
+                                            <a href="/register">Register</a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -105,17 +105,22 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="<?php echo e(Route::is('home') ? 'active' : ''); ?>"><a href="<?php echo e(url('/')); ?>">Home</a></li>
+                            <li class="<?php echo e(Route::is('home') ? 'active' : ''); ?>"><a href="<?php echo e(url('/')); ?>">Home</a>
+                            </li>
                             <li class="<?php echo e(Route::is('shop') ? 'active' : ''); ?>"><a href="shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li class="<?php echo e(Route::is('about') ? 'active' : ''); ?>"><a href="about">About Us</a></li>
-                                    <li class="<?php echo e(Route::is('shopping_cart') ? 'active' : ''); ?>"><a href="shopping_cart">Shopping Cart</a></li>
-                                    <li class="<?php echo e(Route::is('check_out') ? 'active' : ''); ?>"><a href="check_out">Check Out</a></li>
+                                    <li class="<?php echo e(Route::is('about') ? 'active' : ''); ?>"><a href="about">About
+                                            Us</a></li>
+                                    <li class="<?php echo e(Route::is('shopping_cart') ? 'active' : ''); ?>"><a
+                                            href="shopping_cart">Shopping Cart</a></li>
+                                    <li class="<?php echo e(Route::is('check_out') ? 'active' : ''); ?>"><a href="check_out">Check
+                                            Out</a></li>
                                 </ul>
                             </li>
                             <li class="<?php echo e(Route::is('blog') ? 'active' : ''); ?>"><a href="blog">Blog</a></li>
-                            <li class="<?php echo e(Route::is('contact') ? 'active' : ''); ?>"><a href="contact">Contacts</a></li>
+                            <li class="<?php echo e(Route::is('contact') ? 'active' : ''); ?>"><a href="contact">Contacts</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -127,7 +132,8 @@
                         <?php $__currentLoopData = (array) session('cart'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $details): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php $total += $details['price'] * $details['quantity'] ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <a href="<?php echo e(url('shopping_cart')); ?>"><img src="img/icon/cart.png" alt=""> <span><?php echo e(count((array) session('cart'))); ?></span></a>
+                        <a href="<?php echo e(url('shopping_cart')); ?>"><img src="img/icon/cart.png" alt="">
+                            <span><?php echo e(count((array) session('cart'))); ?></span></a>
                         <div class="price">$ <?php echo e($total); ?></div>
                     </div>
                 </div>
@@ -137,10 +143,10 @@
     </header>
 
     <?php if(session()->has('success')): ?>
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fa fa-exclamation-circle me-2"></i>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
-        <?php echo e(session()->get('success')); ?>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle me-2"></i>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <?php echo e(session()->get('success')); ?>
 
         </div>
     <?php endif; ?>
@@ -204,7 +210,8 @@
                                 document.write(new Date().getFullYear());
                             </script>2020
                             All rights reserved | This template is made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
@@ -241,4 +248,5 @@
     <?php echo $__env->yieldContent('scripts'); ?>
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\MailFashion\resources\views/layout/app.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\xampp\htdocs\MailFashion\resources\views/layout/app.blade.php ENDPATH**/ ?>

@@ -11,11 +11,11 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -73,20 +73,20 @@
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 @if (Route::has('login'))
-                            @auth
-                                <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" >
-                                {{ __('Log Out') }}
-                            </button>
-                        </form>
-                        @else
-                            <a href="/login">Login</a>
-                            @if (Route::has('register'))
-                            <a href="/register">Register</a>
-                            @endif
-                            @endauth
-                            @endif
+                                    @auth
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit">
+                                                {{ __('Log Out') }}
+                                            </button>
+                                        </form>
+                                    @else
+                                        <a href="/login">Login</a>
+                                        @if (Route::has('register'))
+                                            <a href="/register">Register</a>
+                                        @endif
+                                    @endauth
+                                @endif
                                 </ul>
                             </div>
                         </div>
@@ -104,17 +104,22 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="{{ Route::is('home') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a>
+                            </li>
                             <li class="{{ Route::is('shop') ? 'active' : '' }}"><a href="shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li class="{{ Route::is('about') ? 'active' : '' }}"><a href="about">About Us</a></li>
-                                    <li class="{{ Route::is('shopping_cart') ? 'active' : '' }}"><a href="shopping_cart">Shopping Cart</a></li>
-                                    <li class="{{ Route::is('check_out') ? 'active' : '' }}"><a href="check_out">Check Out</a></li>
+                                    <li class="{{ Route::is('about') ? 'active' : '' }}"><a href="about">About
+                                            Us</a></li>
+                                    <li class="{{ Route::is('shopping_cart') ? 'active' : '' }}"><a
+                                            href="shopping_cart">Shopping Cart</a></li>
+                                    <li class="{{ Route::is('check_out') ? 'active' : '' }}"><a href="check_out">Check
+                                            Out</a></li>
                                 </ul>
                             </li>
                             <li class="{{ Route::is('blog') ? 'active' : '' }}"><a href="blog">Blog</a></li>
-                            <li class="{{ Route::is('contact') ? 'active' : '' }}"><a href="contact">Contacts</a></li>
+                            <li class="{{ Route::is('contact') ? 'active' : '' }}"><a href="contact">Contacts</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -123,10 +128,11 @@
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
                         @php $total = 0 @endphp
-                        @foreach((array) session('cart') as $id => $details)
+                        @foreach ((array) session('cart') as $id => $details)
                             @php $total += $details['price'] * $details['quantity'] @endphp
                         @endforeach
-                        <a href="{{ url('shopping_cart') }}"><img src="img/icon/cart.png" alt=""> <span>{{ count((array) session('cart')) }}</span></a>
+                        <a href="{{ url('shopping_cart') }}"><img src="img/icon/cart.png" alt="">
+                            <span>{{ count((array) session('cart')) }}</span></a>
                         <div class="price">$ {{ $total }}</div>
                     </div>
                 </div>
@@ -135,11 +141,11 @@
         </div>
     </header>
 
-    @if(session()->has('success'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fa fa-exclamation-circle me-2"></i>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
-        {{ session()->get('success') }}
+    @if (session()->has('success'))
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <i class="fa fa-exclamation-circle me-2"></i>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            {{ session()->get('success') }}
         </div>
     @endif
 
@@ -202,7 +208,8 @@
                                 document.write(new Date().getFullYear());
                             </script>2020
                             All rights reserved | This template is made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>

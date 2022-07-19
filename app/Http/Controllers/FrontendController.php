@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
 {
@@ -74,6 +75,12 @@ class FrontendController extends Controller
             }
             session()->flash('success', 'Product removed successfully');
         }
+    }
+
+    public function placeorder(Request $request)
+    {
+        Session::forget('cart');
+        return redirect()->route('home')->with('success', 'Order Placed Requst Send Successfully');
     }
   
 }

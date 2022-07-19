@@ -2,14 +2,6 @@
     
 
     <!-- Header Section End -->
-    <?php if(session()->has('success')): ?>
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fa fa-exclamation-circle me-2"></i>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="width: 30px">x</button>
-        <?php echo e(session()->get('success')); ?>
-
-        </div>
-    <?php endif; ?>
     
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">

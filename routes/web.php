@@ -9,9 +9,9 @@ use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-// Jetstram Controllers 
+// Jetstram Controllers
 
-Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),  'verified'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('home');
@@ -21,7 +21,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),  'verified
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 
-// Shop Controllers 
+// Shop Controllers
 
 Route::get('shop', [ShopController::class, 'shop'])->name('shop');
 Route::get('shop_detail{id}', [ShopController::class, 'shop_detail'])->name('shop_detail');
@@ -34,16 +34,16 @@ Route::get('add-to-cart/{id}', [FrontendController::class, 'addToCart'])->name('
 Route::patch('update-cart', [FrontendController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [FrontendController::class, 'remove'])->name('remove.from.cart');
 
-// Blog Controllers 
+// Blog Controllers
 
 Route::get('blog', [BlogController::class, 'blog'])->name('blog');
 Route::get('blog_detail_page{id}', [BlogController::class, 'blog_detail'])->name('blog_detail_page');
 
-// About Controllers 
+// About Controllers
 
 Route::get('about', [AboutController::class, 'about'])->name('about');
 
-// Contact Controllers 
+// Contact Controllers
 
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
@@ -80,8 +80,12 @@ Route::get('update_team_view{id}', [AboutController::class, 'update_team_view'])
 Route::post('/updateteam/{id}', [AboutController::class, 'updateteam'])->name('updateteam');
 Route::get('/deleteteam/{id}', [AboutController::class, 'deleteteam'])->name('deleteteam');
 
-// 404 Page Route 
+// Order Place
 
-Route::any('/{page?}',function(){
+Route::get('placeorder', [FrontendController::class, 'placeorder'])->name('placeorder');
+
+// 404 Page Route
+
+Route::any('/{page?}', function () {
     return View::make('errors.404');
-  })->where('page','.*');
+})->where('page', '.*');

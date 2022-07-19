@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-    
+
 
     <!-- Header Section End -->
 
@@ -30,8 +30,9 @@
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
+                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a
+                                    href="#">Click
+                                    here</a> to enter your code</h6>
                             <h6 class="checkout__title">Billing Details</h6>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -89,7 +90,7 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
+                                    please login at the top of the page</p>
                             </div>
                             <div class="checkout__input">
                                 <p>Account Password<span>*</span></p>
@@ -105,25 +106,28 @@
                             <div class="checkout__input">
                                 <p>Order notes<span>*</span></p>
                                 <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
+                                    placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
                                 <h4 class="order__title">Your order</h4>
                                 @php $total = 0 @endphp
-                                @if(session('cart'))
-                                @foreach(session('cart') as $id => $details)
-                                    @php $total += $details['price'] * $details['quantity'] @endphp
-                                <div data-id="{{ $id }} class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li {{ $details['name'] }}>{{ $details['name'] }}<span data-th="Price">${{ $details['price'] }}</span></li>
-                                </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>${{ $details['price'] * $details['quantity'] }}</span></li>
-                                    <li>Total <span>{{ $total }}</span></li>
-                                </ul>
-                                @endforeach
+                                @if (session('cart'))
+                                    @foreach (session('cart') as $id => $details)
+                                        @php $total += $details['price'] * $details['quantity'] @endphp
+                                        <div data-id="{{ $id }} class="checkout__order__products">Product
+                                            <span>Total</span>
+                                        </div>
+                                        <ul class="checkout__total__products">
+                                            <li {{ $details['name'] }}>{{ $details['name'] }}<span
+                                                    data-th="Price">${{ $details['price'] }}</span></li>
+                                        </ul>
+                                        <ul class="checkout__total__all">
+                                            <li>Subtotal <span>${{ $details['price'] * $details['quantity'] }}</span></li>
+                                            <li>Total <span>{{ $total }}</span></li>
+                                        </ul>
+                                    @endforeach
                                 @endif
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
@@ -133,7 +137,7 @@
                                     </label>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                                    ut labore et dolore magna aliqua.</p>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
                                         Check Payment
@@ -148,7 +152,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                <a href="{{ route('placeorder') }}" class="site-btn">PLACE ORDER</a>
                             </div>
                         </div>
                     </div>
@@ -159,4 +163,4 @@
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-    @endsection
+@endsection
