@@ -1,13 +1,6 @@
 @extends('layout.app')
 @section('content')
 
-@if(session()->has('success'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fa fa-exclamation-circle me-2"></i>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="width: 30px">x</button>
-        {{ session()->get('success') }}
-        </div>
-    @endif
     
     <!-- Shop Details Section Begin -->
     <section class="shop-details">
